@@ -20,3 +20,6 @@ extract () {
         echo "Cannot extract '${1}'!"
     fi
 }
+
+# Source git-completion.bash here (from https://github.com/git/git/tree/master/contrib/completion)
+source "${DOTFILES_DIR}/git/git-completion.bash"
