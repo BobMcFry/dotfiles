@@ -1,4 +1,17 @@
-# TODO: think about moving this to .functions
-# TODO: Add git to prompt
 source "${DOTFILES_DIR}/git/git-prompt.sh"
-export PS1="\[\033[1;36m\]\u \[\033[1;37m\]\t \[\033[1;34m\]\W \[\033[1;37m\]\$ "
+
+# Trim directory if too deep to the last 2 dirs
+export PROMPT_DIRTRIM=2
+export GIT_PS1_SHOWCOLORHINTS=1
+export GIT_PS1_SHOWDIRTYSTATE=1
+
+# Some colors used for better readability
+GREEN="\[\e[32m\]"
+BLUE="\[\e[0;34m\]"
+GRAY="\[\e[0m\]"
+
+# This will be executed before the PS1. Actually what __git_ps1 <pre> <post> is 
+# doing here, is to reset PS1. This will enable color coding and will be a
+# little faster as well.
+PROMPT_COMMAND='__git_ps1 "${GREEN}\u${GREEN}@${GREEN}\h ${BLUE}\w${GRAY}" "${GRAY} \$ "'
+export PS1="${GREEN}\u${GREEN}@${GREEN}\h ${BLUE}\w$(__git_ps1 " (%s)")${GRAY} \$ "
