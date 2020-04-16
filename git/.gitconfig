@@ -13,7 +13,7 @@
     ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
     ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
     logtree = "log --graph --oneline --decorate --all"
-    st = status -s
+    st = status
     vomit = commit
 # TODO: Test these colors They are taken from https://github.com/webpro/dotfiles
 [color]
@@ -39,6 +39,7 @@
 [core]
     excludesfile = ~/.gitignore_global
     editor = vi
+	autocrlf = input
 [github]
     user = bobmcfry
 [push]
